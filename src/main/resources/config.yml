@@ -1,0 +1,6 @@
+GLOBAL-COOLDOWN:
+  ENABLED: true
+  TIME: 10
+
+APOLLO-API: false #The new Lunar API
+

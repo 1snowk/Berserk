@@ -1,0 +1,14 @@
+ABILITIES:
+  STRENGTH:
+    DISPLAY-NAME: "&6&lStrength II"
+    COOLDOWN: 60 #in seconds
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "BLAZE_POWDER"
+      DATA: 0
+      LORE:
+        - ""
+        - ""
+        - ""
