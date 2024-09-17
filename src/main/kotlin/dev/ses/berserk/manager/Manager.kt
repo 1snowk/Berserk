@@ -1,6 +1,8 @@
 package dev.ses.berserk.manager
 
 import dev.ses.berserk.ability.Ability
+import dev.ses.berserk.ability.impl.JumpBoostAbility
+import dev.ses.berserk.ability.impl.ResistanceAbility
 import dev.ses.berserk.ability.impl.StrengthAbility
 import dev.ses.berserk.utils.CC
 import org.bukkit.Bukkit
@@ -11,8 +13,9 @@ class Manager {
     private val abilitesList : MutableList<Ability> = mutableListOf()
 
     fun loadAbilites() {
-        abilitesList.add(StrengthAbility())
-
+        this.abilitesList.add(StrengthAbility())
+        this.abilitesList.add(ResistanceAbility())
+        this.abilitesList.add(JumpBoostAbility())
         Bukkit.getConsoleSender().sendMessage(CC.translate("&aHas successfully loaded " + abilitesList.size.toString() + " abilities."))
     }
 

@@ -5,13 +5,13 @@ import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 
-class StrengthAbility : InteractAbility("STRENGTH") {
+class ResistanceAbility : InteractAbility("RESISTANCE") {
 
     override fun getEffects(): MutableList<PotionEffect> {
-        return mutableListOf(PotionEffect(PotionEffectType.INCREASE_DAMAGE, 6*20, 1))
+        return mutableListOf(PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 6*20, 2))
     }
 
-    override fun onInteract(event: PlayerInteractEvent){
+    override fun onInteract(event: PlayerInteractEvent) {
         for (effect in getEffects()){
             for (activeEffects in event.player.activePotionEffects){
                 if (activeEffects.type == effect.type){
@@ -23,5 +23,4 @@ class StrengthAbility : InteractAbility("STRENGTH") {
         }
         super.onInteract(event)
     }
-
 }

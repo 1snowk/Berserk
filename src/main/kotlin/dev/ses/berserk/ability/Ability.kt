@@ -105,25 +105,9 @@ abstract class Ability(private var name: String?) {
         }
     }
 
-    abstract fun getExecuteMessage(): MutableList<String>?
+     fun getExecuteMessage(): MutableList<String>?{
+         return BerserkPlugin.getInstance()?.getLangFile()?.getStringList("ABILITIES.EXECUTE.$this.name")
+     }
+
     abstract fun getEffects(): MutableList<PotionEffect>?
-
-    companion object {
-
-        fun isAbility(item: ItemStack?, abilityItem: ItemStack?): Boolean {
-            if (item == null || abilityItem == null) return false
-
-            if (item.type != abilityItem.type) return false
-
-            if (!item.hasItemMeta()) return false
-
-            val abilityMeta = abilityItem.itemMeta
-            val itemMeta = item.itemMeta
-
-            return itemMeta!!.hasDisplayName() && itemMeta.displayName.equals(
-                abilityMeta!!.displayName,
-                ignoreCase = true
-            ) && (itemMeta.hasLore() == abilityMeta.hasLore()) && itemMeta.lore == abilityMeta.lore
-        }
-    }
 }
