@@ -34,6 +34,7 @@ class AbilityListener : Listener {
             if (ability !is InteractAbility) return
 
             val interactAbility: InteractAbility = ability
+            event.isCancelled = true
 
             if (interactAbility.isEnd() == true && player.world.environment == World.Environment.THE_END){
                 player.sendMessage(CC.translate(Lang.ABILITY_END!!))

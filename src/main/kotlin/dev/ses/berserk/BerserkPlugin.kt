@@ -29,10 +29,10 @@ class BerserkPlugin : JavaPlugin() {
         Lang()
         Config()
 
-        this.manager?.loadAbilites()
+        this.manager!!.loadAbilities()
 
         log("&2" + Strings.repeat("=", 40))
-        log("&a&lvBerserk - 0.1")
+        log("&a&lBerserk - v0.1")
         log(" ")
         log("&eAuthor: &fsnowk")
         log("&eDiscord Support: &fmavzm")
