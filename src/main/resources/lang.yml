@@ -4,8 +4,8 @@ GLOBAL-COOLDOWN: "&cYou are in global ability cooldown for {time}."
 ABILITIES:
   IN-COOLDOWN: "&cYou are on cooldown for {time}."
   BLOCKED:
-    NETHER: "&Abilities are disabled in the nether"
-    END: "&Abilities are disabled in the end"
+    NETHER: "&cAbilities are disabled in the nether"
+    END: "&cAbilities are disabled in the end"
   EXECUTE:
     STRENGTH:
       - ""
