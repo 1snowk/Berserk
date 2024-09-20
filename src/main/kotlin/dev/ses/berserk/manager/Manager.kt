@@ -16,6 +16,8 @@ class Manager {
         this.abilitiesList.add(JumpBoostAbility())
         this.abilitiesList.add(PrePearlAbility())
         this.abilitiesList.add(ZeusAbility())
+        this.abilitiesList.add(DarkBallAbility())
+        this.abilitiesList.add(ExoticBoneAbility())
         Bukkit.getConsoleSender().sendMessage(CC.translate("&aHas successfully loaded " + abilitiesList.size.toString() + " abilities."))
     }
 
