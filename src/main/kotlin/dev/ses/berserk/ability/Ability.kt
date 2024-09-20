@@ -46,6 +46,10 @@ abstract class Ability(private var name: String?) {
         return material
     }
 
+    fun getDisplayName(): String?{
+        return displayName
+    }
+
     fun isNether(): Boolean? {
         return this.nether
     }
@@ -63,21 +67,11 @@ abstract class Ability(private var name: String?) {
     }
 
     fun isAbility(item : ItemStack?): Boolean{
-        val abilityItem: ItemStack = this.item as ItemStack
-
-        if (item == null) return false
-
-        if (item.type != abilityItem.type) return false
-
-        if (!item.hasItemMeta()) return false
-
-        val abilityMeta = abilityItem.itemMeta
-        val itemMeta = item.itemMeta
-
-        return itemMeta!!.hasDisplayName() && itemMeta.displayName.equals(
-            abilityMeta!!.displayName,
-            ignoreCase = true
-        ) && (itemMeta.hasLore() == abilityMeta.hasLore()) && itemMeta.lore == abilityMeta.lore
+        return (item != null) && (item.type != getAbilityItem()!!.type) && !item.hasItemMeta()
+                && item.itemMeta!!.hasDisplayName()
+                && item.itemMeta!!.displayName.equals(getAbilityItem()!!.itemMeta!!.displayName, ignoreCase = true) &&
+                (item.itemMeta!!.hasLore() == getAbilityItem()!!.itemMeta!!.hasLore())
+                && item.itemMeta!!.lore == getAbilityItem()!!.itemMeta!!.lore
     }
 
     fun decreaseItem(player: Player){

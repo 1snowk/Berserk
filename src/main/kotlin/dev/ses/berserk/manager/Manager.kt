@@ -25,6 +25,10 @@ class Manager {
         return abilitiesList.firstOrNull{ ability ->  ability.isAbility(item)}
     }
 
+    fun getAbilityByName(name: String) : Ability? {
+        return abilitiesList.firstOrNull{ability ->  name.equals(ability.getName(), true)}
+    }
+
     fun getAbilityList(): MutableList<Ability> {
         return abilitiesList
     }
