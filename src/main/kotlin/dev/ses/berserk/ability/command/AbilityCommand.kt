@@ -20,7 +20,7 @@ class AbilityCommand : CommandExecutor {
             return true
         }
 
-        if (sender.hasPermission("berserk.admin")) {
+        if (!sender.hasPermission("berserk.admin")) {
             sender.sendMessage(CC.translate(Lang.NO_PERMS!!))
             return true
         }
