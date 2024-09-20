@@ -6,7 +6,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.potion.PotionEffect
 
-class ExoticBone : DamageableAbility("EXOTIC-BONE") {
+class ExoticBoneAbility : DamageableAbility("EXOTIC-BONE") {
 
     override fun getEffects(): MutableList<PotionEffect>? {
         return null
