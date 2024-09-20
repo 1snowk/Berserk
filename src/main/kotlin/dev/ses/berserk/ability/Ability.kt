@@ -1,21 +1,15 @@
 package dev.ses.berserk.ability
 
-import com.lunarclient.apollo.Apollo
-import com.lunarclient.apollo.module.cooldown.CooldownModule
-import com.lunarclient.apollo.player.ApolloPlayer
-import com.lunarclient.apollo.recipients.Recipients
+
 import dev.ses.berserk.BerserkPlugin
-import dev.ses.berserk.ability.apollo.ApolloCooldown
+
 import dev.ses.berserk.utils.CooldownAPI
 import dev.ses.berserk.utils.ItemBuilder
 import dev.ses.berserk.utils.config.Config
-import dev.ses.berserk.utils.config.Lang
-import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
-import java.util.Optional
 
 
 abstract class Ability(private var name: String?) {
@@ -43,19 +37,8 @@ abstract class Ability(private var name: String?) {
 
     fun setCooldown(player: Player) {
         CooldownAPI.addCooldown(player, this.name!!, this.time!!)
-
         if (Config.IS_GLOBAL_COOLDOWN == true){
             CooldownAPI.addCooldown(player, "GLOBAL", Config.GLOBAL_COOLDOWN_TIME!!)
-        }
-
-        if (Config.IS_APOLLO_API == true && Bukkit.getPluginManager().getPlugin("Apollo-Bukkit") != null) {
-            val aCooldown = ApolloCooldown(this.name, this.material, this.data!!)
-            val apolloPlayer: Optional<ApolloPlayer> = Apollo.getPlayerManager().getPlayer(player.uniqueId)
-            apolloPlayer.ifPresent {
-                Apollo.getModuleManager().getModule(CooldownModule::class.java)
-                    .displayCooldown(apolloPlayer.get(), aCooldown.createCooldown(this.time))
-
-            }
         }
     }
 

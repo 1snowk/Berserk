@@ -12,6 +12,10 @@ class CooldownAPI {
 
         private val cooldowns: HashBasedTable<UUID, String, Long> = HashBasedTable.create()
 
+        fun isInGlobalCooldown(player: Player): Boolean {
+            return isInCooldown(player, "GLOBAL")
+        }
+
         fun isInCooldown(player: Player, cooldownName: String?): Boolean {
             return cooldowns.contains(player.uniqueId, cooldownName) && cooldowns.get(
                 player.uniqueId,

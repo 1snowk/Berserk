@@ -10,5 +10,84 @@ ABILITIES:
       DATA: 0
       LORE:
         - ""
+        - "&c&lRight Click to receive Strength II for 5 seconds"
         - ""
+  DARK-BALL:
+    DISPLAY-NAME: "&0&lDark Ball"
+    COOLDOWN: 60 #in seconds
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "FIREWORK_CHARGE"
+      DATA: 0
+      LORE:
+        - ""
+        - "&c&lRight Click to receive "
+        - ""
+  JUMP-BOOST:
+    DISPLAY-NAME: "&f&lJump Boost"
+    COOLDOWN: 60 #in seconds
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "FEATHER"
+      DATA: 0
+      LORE:
+        - ""
+        - "&c&lRight Click"
+        - ""
+  RESISTANCE:
+    DISPLAY-NAME: "&b&lResistance III"
+    COOLDOWN: 60 #in seconds
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "IRON_INGOT"
+      DATA: 0
+      LORE:
+        - ""
+        - "&c&lRight Click"
+        - ""
+  ZEUS:
+    DISPLAY-NAME: "&e&lZeus"
+    COOLDOWN: 60 #in seconds
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "BLAZE_ROD"
+      DATA: 0
+      LORE:
+        - ""
+        - "&c&lRight Click"
+        - ""
+  PRE-PEARL:
+    DISPLAY-NAME: "&e&lPrePearl"
+    COOLDOWN: 60 #in seconds
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "ENDER_PEARL"
+      DATA: 0
+      LORE:
+        - ""
+        - "&c&lRight Click"
+        - ""
+  EXOTIC-BONE:
+    DISPLAY-NAME: "&b&lExotic Bone"
+    COOLDOWN: 60 #in seconds
+    HITS: 3
+    BLOCK-IN:
+      END: false
+      NETHER: false
+    ITEM:
+      MATERIAL: "BONE"
+      DATA: 0
+      LORE:
+        - ""
+        - "&c&lRight Click"
         - ""
