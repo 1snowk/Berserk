@@ -3,4 +3,4 @@ version: '1.0-SNAPSHOT'
 main: dev.ses.berserk.BerserkPlugin
 commands:
   ability:
-    aliases: ["berserk"]
+    aliases: ["berserk", "abilities"]
