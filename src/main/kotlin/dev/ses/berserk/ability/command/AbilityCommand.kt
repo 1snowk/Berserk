@@ -7,7 +7,6 @@ import org.bukkit.command.CommandSender
 class AbilityCommand : CommandExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        // crear el comando completo
         return false
     }
 }
