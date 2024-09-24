@@ -14,23 +14,23 @@ import org.bukkit.potion.PotionEffect
 
 abstract class Ability(private var name: String?) {
 
-    private var displayName : String? = null
-    private var material : String? = null
-    private var data : Int? = null
-    private var time : Int? = null
-    private var item : ItemStack? = null
-    private var lore : MutableList<String>? = null
-    private var nether : Boolean? = null
-    private var end : Boolean? = null
+     private var displayName : String? = null
+     private var material : String? = null
+     private var data : Int? = null
+     private var time : Int? = null
+     private var item : ItemStack? = null
+     private var lore : MutableList<String>? = null
+     private var nether : Boolean? = null
+     private var end : Boolean? = null
 
     init {
-        this.displayName = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getString("ABILITIES.$name.DISPLAY-NAME")
-        this.material = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getString("ABILITIES.$name.ITEM.MATERIAL")
-        this.data = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getInt("ABILITIES.$name.ITEM.DATA")
-        this.time = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getInt("ABILITIES.$name.COOLDOWN")
-        this.lore = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getStringList("ABILITIES.$name.ITEM.LORE")
-        this.nether = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getBoolean("ABILITIES.$name.BLOCKED-IN.NETHER")
-        this.end = BerserkPlugin.getInstance()!!.getAbilitiesFile()!!.getBoolean("ABILITIES.$name.BLOCKED-IN.END")
+        this.displayName = BerserkPlugin.getInstance().getAbilitiesFile()!!.getString("ABILITIES.$name.DISPLAY-NAME")
+        this.material = BerserkPlugin.getInstance().getAbilitiesFile()!!.getString("ABILITIES.$name.ITEM.MATERIAL")
+        this.data = BerserkPlugin.getInstance().getAbilitiesFile()!!.getInt("ABILITIES.$name.ITEM.DATA")
+        this.time = BerserkPlugin.getInstance().getAbilitiesFile()!!.getInt("ABILITIES.$name.COOLDOWN")
+        this.lore = BerserkPlugin.getInstance().getAbilitiesFile()!!.getStringList("ABILITIES.$name.ITEM.LORE")
+        this.nether = BerserkPlugin.getInstance().getAbilitiesFile()!!.getBoolean("ABILITIES.$name.BLOCKED-IN.NETHER")
+        this.end = BerserkPlugin.getInstance().getAbilitiesFile()!!.getBoolean("ABILITIES.$name.BLOCKED-IN.END")
         this.item = ItemBuilder(Material.getMaterial(this.material!!)!!, 1, this.data!!).name(this.displayName!!).lore(lore!!).toStack()
     }
 
@@ -66,8 +66,12 @@ abstract class Ability(private var name: String?) {
         return this.item
     }
 
+    fun getTime(): Int? {
+        return this.time
+    }
+
     fun isAbility(item : ItemStack?): Boolean{
-        return (item != null) && (item.type != getAbilityItem()!!.type) && !item.hasItemMeta()
+        return (item != null) && (item.type == getAbilityItem()!!.type) && item.hasItemMeta()
                 && item.itemMeta!!.hasDisplayName()
                 && item.itemMeta!!.displayName.equals(getAbilityItem()!!.itemMeta!!.displayName, ignoreCase = true) &&
                 (item.itemMeta!!.hasLore() == getAbilityItem()!!.itemMeta!!.hasLore())
@@ -83,7 +87,7 @@ abstract class Ability(private var name: String?) {
     }
 
      fun getExecuteMessage(): MutableList<String>?{
-         return BerserkPlugin.getInstance()?.getLangFile()?.getStringList("ABILITIES.EXECUTE.$this.name")
+         return BerserkPlugin.getInstance().getLangFile()?.getStringList("ABILITIES.EXECUTE.$this.name")
      }
 
     abstract fun getEffects(): MutableList<PotionEffect>?

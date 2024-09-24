@@ -9,7 +9,7 @@ import org.bukkit.potion.PotionEffectType
 class ResistanceAbility : InteractAbility("RESISTANCE") {
 
     override fun getEffects(): MutableList<PotionEffect> {
-        return mutableListOf(Utils.createPottionEffect(PotionEffectType.DAMAGE_RESISTANCE, 6, 3))
+        return mutableListOf(Utils.createPotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 6, 3))
     }
 
     override fun onInteract(event: PlayerInteractEvent) {

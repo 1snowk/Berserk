@@ -9,7 +9,7 @@ import org.bukkit.potion.PotionEffectType
 class StrengthAbility : InteractAbility("STRENGTH") {
 
     override fun getEffects(): MutableList<PotionEffect> {
-        return mutableListOf(Utils.createPottionEffect(PotionEffectType.INCREASE_DAMAGE, 6, 2))
+        return mutableListOf(Utils.createPotionEffect(PotionEffectType.INCREASE_DAMAGE, 6, 2))
     }
 
     override fun onInteract(event: PlayerInteractEvent){

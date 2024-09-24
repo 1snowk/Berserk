@@ -10,7 +10,7 @@ class JumpBoostAbility : InteractAbility("JUMP-BOOST") {
 
 
     override fun getEffects(): MutableList<PotionEffect>{
-        return mutableListOf(Utils.createPottionEffect(PotionEffectType.JUMP, 6, 4))
+        return mutableListOf(Utils.createPotionEffect(PotionEffectType.JUMP, 6, 4))
     }
 
     override fun onInteract(event: PlayerInteractEvent) {

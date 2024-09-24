@@ -2,7 +2,6 @@ package dev.ses.berserk.ability.command
 
 import com.google.common.base.Strings
 import dev.ses.berserk.BerserkPlugin
-import dev.ses.berserk.ability.Ability
 import dev.ses.berserk.utils.CC
 import dev.ses.berserk.utils.Sounds
 import dev.ses.berserk.utils.config.Lang
@@ -30,23 +29,23 @@ class AbilityCommand : CommandExecutor {
             sender.sendMessage(CC.translate("&7&m" + Strings.repeat("-", 40)))
             sender.sendMessage(CC.translate("&a&lBerserk Abilities"))
             sender.sendMessage("")
-            sender.sendMessage(CC.translate("&a* &2/ability list"))
-            sender.sendMessage(CC.translate("&a* &2/ability get <ability> <amount>"))
-            sender.sendMessage(CC.translate("&a* &2/ability getall"))
+            sender.sendMessage(CC.translate("&a* &2/$label list"))
+            sender.sendMessage(CC.translate("&a* &2/$label get <ability> <amount>"))
+            sender.sendMessage(CC.translate("&a* &2/$label getall"))
             sender.sendMessage("")
             sender.sendMessage(CC.translate("&7&m" + Strings.repeat("-", 40)))
            return true
         }
 
         if (args[0].equals("list", ignoreCase = true)) {
-            for (abilities in BerserkPlugin.getInstance()!!.getManager()!!.getAbilityList()){
+            for (abilities in BerserkPlugin.getInstance().getManager()!!.getAbilityList()){
                 sender.sendMessage(CC.translate("${abilities.getDisplayName()} &7: ${abilities.getName()}"))
             }
             return true
         }
 
         if (args[0].equals("getall", true)){
-            for (abilities in BerserkPlugin.getInstance()!!.getManager()!!.getAbilityList()){
+            for (abilities in BerserkPlugin.getInstance().getManager()!!.getAbilityList()){
                 sender.inventory.addItem(abilities.getAbilityItem())
             }
             Sounds.NOTE_PLING.play(sender)
@@ -58,7 +57,7 @@ class AbilityCommand : CommandExecutor {
                 return true
             }
 
-            val ability = BerserkPlugin.getInstance()!!.getManager()!!.getAbilityByName(args[1])
+            val ability = BerserkPlugin.getInstance().getManager()!!.getAbilityByName(args[1])
             val amount = getOrOne(args[2])
 
             if (ability == null){

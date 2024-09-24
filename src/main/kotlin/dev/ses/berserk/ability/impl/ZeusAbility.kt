@@ -16,7 +16,7 @@ class ZeusAbility : InteractAbility("ZEUS"), Listener {
 
 
     init {
-        Bukkit.getPluginManager().registerEvents(this, BerserkPlugin())
+        Bukkit.getPluginManager().registerEvents(this, BerserkPlugin.getInstance())
     }
 
     override fun getEffects(): MutableList<PotionEffect>? {
@@ -26,8 +26,8 @@ class ZeusAbility : InteractAbility("ZEUS"), Listener {
     override fun onInteract(event: PlayerInteractEvent) {
         event.player.setMetadata("zeus", FixedMetadataValue(BerserkPlugin.getInstance()!!, true))
 
-        Bukkit.getScheduler().runTaskLater(BerserkPlugin.getInstance()!!, Runnable {
-            event.player.removeMetadata("zeus", BerserkPlugin.getInstance()!!)
+        Bukkit.getScheduler().runTaskLater(BerserkPlugin.getInstance(), Runnable {
+            event.player.removeMetadata("zeus", BerserkPlugin.getInstance())
         }, 10*20L)
 
         super.onInteract(event)

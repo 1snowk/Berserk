@@ -18,6 +18,7 @@ class Manager {
         this.abilitiesList.add(ZeusAbility())
         this.abilitiesList.add(DarkBallAbility())
         this.abilitiesList.add(ExoticBoneAbility())
+        this.abilitiesList.add(RageBallAbility())
         Bukkit.getConsoleSender().sendMessage(CC.translate("&aHas successfully loaded " + abilitiesList.size.toString() + " abilities."))
     }
 

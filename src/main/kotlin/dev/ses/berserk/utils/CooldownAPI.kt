@@ -10,7 +10,7 @@ class CooldownAPI {
 
     companion object{
 
-        private val cooldowns: HashBasedTable<UUID, String, Long> = HashBasedTable.create()
+        val cooldowns: HashBasedTable<UUID, String, Long> = HashBasedTable.create()
 
         fun isInGlobalCooldown(player: Player): Boolean {
             return isInCooldown(player, "GLOBAL")
