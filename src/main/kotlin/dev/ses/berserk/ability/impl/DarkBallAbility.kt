@@ -32,8 +32,6 @@ class DarkBallAbility : InteractAbility("DARK-BALL") {
             if (nearbyEntities !is Player) continue
             Utils.giveEffectsToPlayer(nearbyEntities, getNegativeEffects())
         }
-
-
         Utils.createFakeExplosion(player)
         Utils.giveEffectsToPlayer(player, getEffects())
 
