@@ -24,7 +24,7 @@ class AbilityRunnable(plugin: BerserkPlugin) : Runnable {
     override fun run() {
         for (players in Bukkit.getServer().onlinePlayers) {
 
-            val itemInHand : ItemStack = if (Utils.VERSION.contains("1.8") || Utils.VERSION.contains("1.8")) {
+            val itemInHand : ItemStack = if (Utils.VERSION.contains("1.8") || Utils.VERSION.contains("1.7")) {
                 players.itemInHand
             }else{
                 players.inventory.itemInMainHand
